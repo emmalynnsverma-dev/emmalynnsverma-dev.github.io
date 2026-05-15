@@ -12,5 +12,5 @@ Welcome to my professional portfolio! I use programming, databases, and business
 - **Data Analysis with Microsoft Excel, Tableau, and PowerBI
 - **Tools & Environments:** VS Code, Git, GitHub
 - **Business Process Modeling using UML Activity Diagrams, Gliffy
--**Project Management: using Trello, Gantt charts, and Microsoft Project
--**Geographic Info System: using ArcGIS, QGIS, and Global Mapper
+- **Project Management: using Trello, Gantt charts, and Microsoft Project
+- **Geographic Info System: using ArcGIS, QGIS, and Global Mapper
