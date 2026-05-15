@@ -8,9 +8,9 @@ Welcome to my professional portfolio! I use programming, databases, and business
 - **Tools Used:** Python (Pandas), VS Code, Tableau Public
 - **Links:** [Interactive Dashboard](https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) | [Code Repository](https://github.com/emmalynnsverma-dev/telecom-customer-churn-analytics)
 ## 🛠️ Technical Skills
-- **Programming & Scripting: using Python, HTML, SQL, and PowerShell scripting 
-- **Data Analysis with Microsoft Excel, Tableau, and PowerBI
+- **Programming & Scripting:** using Python, HTML, SQL, and PowerShell scripting
+- **Data Analysis:** with Microsoft Excel, Tableau, and PowerBI
 - **Tools & Environments:** VS Code, Git, GitHub
-- **Business Process Modeling using UML Activity Diagrams, Gliffy
-- **Project Management: using Trello, Gantt charts, and Microsoft Project
-- **Geographic Info System: using ArcGIS, QGIS, and Global Mapper
+- **Business Process & Infrastructure Modeling:** using UML Activity Diagrams, Gliffy, Network Topology/Architecture Diagramming
+- **Project Management:** using Trello, Gantt charts, and Microsoft Project
+- **Geographic Info System:** using ArcGIS, QGIS, and Global Mapper
