@@ -7,10 +7,13 @@ Welcome to my professional portfolio! I use programming, databases, and business
 - **Project Goal:** Cleaned and analyzed 7,000+ customer records to locate critical billing and contract retention risks.
 - **Tools Used:** Python (Pandas), VS Code, Tableau Public
 - **Links:** [Interactive Dashboard](https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) | [Code Repository](https://github.com/emmalynnsverma-dev/telecom-customer-churn-analytics)
+## 2. RetailPulse Executive Performance Dashboard
+* **Project Goal:** Designed an end-to-end BI solution to answer three critical executive questions: revenue health, margin-killing categories, and fastest-growing segments.
+* **Tools Used:** Tableau Public, Microsoft Excel (Advanced Data Modeling), AI-Assisted Architecture
+* **Links:** [Live Interactive Dashboard](https://public.tableau.com/views/RetailPulseExecutiveDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) | [Project Documentation](https://github.com/emmalynnsverma-dev/RetailPulse-Executive-Dashboard)
 ## 🛠️ Technical Skills
-- **Programming & Scripting:** using Python, HTML, SQL, and PowerShell scripting
-- **Data Analysis:** with Microsoft Excel, Tableau, and PowerBI
-- **Tools & Environments:** VS Code, Git, GitHub
-- **Business Process & Infrastructure Modeling:** using UML Activity Diagrams, Gliffy, Network Topology/Architecture Diagramming
-- **Project Management:** using Trello, Gantt charts, and Microsoft Project
-- **Geographic Info System:** using ArcGIS, QGIS, and Global Mapper
+- Data Analytics & Visualization: Tableau (Desktop/Public), Power BI, Microsoft Excel (Power Query, Pivot Tables, VLOOKUPs), Data Modeling (Joins & Relationships).
+- Programming & Databases: Python (Pandas, NumPy), SQL, HTML, PowerShell Scripting.
+- Business Systems & Infrastructure: Business Process Modeling (UML, Activity Diagrams), Network Topology/Architecture Diagramming, Gliffy.
+- GIS & Spatial Analysis: ArcGIS, QGIS, Global Mapper.
+- Project Management & DevOps: Git/GitHub (Version Control), VS Code, Microsoft Project, Trello, Gantt Charts.
