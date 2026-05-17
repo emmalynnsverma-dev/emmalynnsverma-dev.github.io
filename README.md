@@ -7,16 +7,19 @@ Welcome to my professional portfolio! I use programming, databases, and business
 - **Project Goal:** Cleaned and analyzed 7,000+ customer records to locate critical billing and contract retention risks.
 - **Tools Used:** Python (Pandas), VS Code, Tableau Public
 - **Links:** [Interactive Dashboard](https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) | [Code Repository](https://github.com/emmalynnsverma-dev/telecom-customer-churn-analytics)
-## 2. RetailPulse Executive Performance Dashboard
-* **Project Goal:** Designed an end-to-end BI solution to answer three critical executive questions: revenue health, margin-killing categories, and fastest-growing segments.
-* **Tools Used:** Tableau Public, Microsoft Excel (Advanced Data Modeling), AI-Assisted Architecture
-* **Links:** [Live Interactive Dashboard](https://public.tableau.com/views/RetailPulseExecutiveDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) | [Project Documentation](https://github.com/emmalynnsverma-dev/RetailPulse-Executive-Dashboard)
-* ### 3. PGA Tour 2025 Performance Analysis
+### 2. RetailPulse Executive Performance Dashboard
+- **Project Goal:** Designed an end-to-end BI solution...
+- **Tools Used:** Tableau Public, Microsoft Excel...
+- **Links:** [Live Interactive Dashboard](https://public.tableau.com/views/RetailPulseExecutiveDashboard/Dashboard1) | [Project Documentation](https://github.com/emmalynnsverma-dev/RetailPulse-Executive-Dashboard)
 
-**Project Goal:** Analyzed 2025 PGA Tour season statistics for 20 players across 16 performance metrics to identify key performance drivers and earnings patterns.
-
-**Tools Used:** Python (pandas, matplotlib, seaborn), Tableau Public, VS Code
-
+### 3. PGA Tour 2025 Performance Analysis
+- **Project Goal:** Analyzed 2025 PGA Tour season statistics...
+- **Tools Used:** Python (pandas, matplotlib, seaborn), Tableau Public, VS Code
+- **Key Findings:**
+  - SG Approach had the strongest correlation with scoring average (−0.97)
+  - Tommy Fleetwood earned the most per win ($18.5M) despite only 1 victory
+  - Collin Morikawa hits 72% of greens despite being one of the shortest hitters
+- **Links:** [Interactive Dashboard](https://public.tableau.com/views/PGATour2025PerformanceAnalysis/PGATour2025PerformanceAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) | [Code Repository](github.com/emmalynnsverma-dev/pga-tour-2025-eda)
 **Key Findings:**
 - SG Approach had the strongest correlation with scoring average (−0.97)
 - Tommy Fleetwood earned the most per win ($18.5M) despite only 1 victory
