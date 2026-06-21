@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emmalynn Verma — Data & Business Analytics</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --ink:        #0f0e11;
+      --ink-muted:  #5a5566;
+      --paper:      #fafaf8;
+      --accent:     #d63384;       /* pink */
+      --accent-lt:  #fce4f0;
+      --rule:       #e2e0e8;
+      --mono:       'JetBrains Mono', monospace;
+      --serif:      'DM Serif Display', serif;
+      --sans:       'Inter', sans-serif;
+      --max:        860px;
+      --gap:        clamp(2rem, 5vw, 4rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.9rem 0;
+    }
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: calc(var(--gap) * 1.8) 0 calc(var(--gap) * 1.2);
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      max-width: 680px;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      max-width: 560px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #6848b0; }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--rule); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* signature: live stat ticker */
+    .ticker {
+      margin-top: 2.5rem;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .ticker-item { display: flex; flex-direction: column; }
+    .ticker-num {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .ticker-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--ink-muted);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: var(--gap) 0; border-bottom: 1px solid var(--rule); }
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 2rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; gap: 1.25rem; }
+
+    .project-card {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 0.75rem;
+      background: #fff;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(124,92,191,0.1);
+    }
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.5rem;
+      background: var(--accent-lt);
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+    .project-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .tool-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.18rem 0.5rem;
+      background: var(--rule);
+      border-radius: 3px;
+      color: var(--ink-muted);
+    }
+    .project-links { display: flex; gap: 0.6rem; }
+    .project-links a {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    .project-finding {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      background: var(--accent-lt);
+      padding: 0.6rem 0.85rem;
+      border-radius: 4px;
+      border-left: 2.5px solid var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .skill-group {
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .skill-list {
+      list-style: none;
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .skill-list li {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      padding: 0.15rem 0.5rem;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+    @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-body { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.75; }
+    .about-body p + p { margin-top: 1rem; }
+    .about-meta { display: flex; flex-direction: column; gap: 1rem; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.15rem; }
+    .meta-label { font-family: var(--mono); font-size: 0.63rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+    .meta-value { font-size: 0.88rem; color: var(--ink); font-weight: 500; }
+
+    /* ── CONTACT ── */
+    .contact-strip {
+      padding: var(--gap) 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .contact-heading { font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.8rem); }
+    .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 0;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* ── MOTION ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .project-card, .skill-group {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.15s, box-shadow 0.15s;
+      }
+      .project-card.visible, .skill-group.visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .ticker { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a class="nav-brand" href="#">Emmalynn Verma</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">Computer Information Systems Major &nbsp;·&nbsp; Business Analytics Concentration &nbsp;·&nbsp; May 2027</p>
+    <h1>Turning messy data into<br><em>decisions that move.</em></h1>
+    <p class="hero-sub">
+      James Madison University · Computer Information Systems<br>
+      Operations & Data Assurance Intern @ Teleqo Tech
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="https://linkedin.com/in/emmalynn-verma" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="https://github.com/emmalynnsverma-dev" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+    </div>
+
+    <!-- signature ticker -->
+    <div class="ticker">
+      <div class="ticker-item">
+        <span class="ticker-num">7,000+</span>
+        <span class="ticker-label">Customer records analyzed</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num">4</span>
+        <span class="ticker-label">End-to-end BI projects</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num">−0.97</span>
+        <span class="ticker-label">SG: Approach correlation (PGA)</span>
+      </div>
+      <div class="ticker-item">
+        <span class="ticker-num">4+</span>
+        <span class="ticker-label">Tools: Python · Tableau · SQL · ArcGIS</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <p class="section-eyebrow">// selected work</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <!-- P1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Telecom Customer Churn &amp; Retention Analytics</h3>
+          <span class="project-num">01</span>
+        </div>
+        <p class="project-desc">
+          Analyzed 7,043 customer records to identify key drivers of user churn. Discovered that
+          month-to-month contract holders using fiber-optic internet account for 70% of all lost revenue.
+          Built a Python ETL pipeline and interactive Tableau dashboard to help retention teams target
+          high-risk accounts before they cancel.
+        </p>
+        <div class="project-finding">
+          Month-to-month customers churn at 42.7% vs. 2% for two-year holders &nbsp;·&nbsp;
+          50% of all churn occurs within the first 12 months &nbsp;·&nbsp;
+          Electronic check + month-to-month customers churn at 2× the corporate average
+        </div>
+        <div class="project-footer">
+          <div class="tool-tags">
+            <span class="tag">Python</span><span class="tag">Pandas</span>
+            <span class="tag">Jupyter</span><span class="tag">Tableau</span>
+          </div>
+          <div class="project-links">
+            <a href="https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1" target="_blank">Dashboard ↗</a>
+            <a href="https://github.com/emmalynnsverma-dev/telecom-customer-churn-analytics" target="_blank">Code ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">RetailPulse Executive Performance Dashboard</h3>
+          <span class="project-num">02</span>
+        </div>
+        <p class="project-desc">
+          Designed an end-to-end BI solution for retail executive reporting using the Superstore dataset.
+          Built custom Profit Margin % calculated fields, dynamic date-range and regional filters updating
+          4 global KPIs, and dual-axis trend lines — giving executives a single-pane view of revenue,
+          margin, and segment growth.
+        </p>
+        <div class="project-finding">
+          Identified product sub-categories dragging down margins &nbsp;·&nbsp;
+          Pinpointed the fastest-scaling customer segment &nbsp;·&nbsp;
+          Dynamic filters update all 4 KPIs in real time
+        </div>
+        <div class="project-footer">
+          <div class="tool-tags">
+            <span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">Calculated Fields</span>
+          </div>
+          <div class="project-links">
+            <a href="https://public.tableau.com/app/profile/emmalynn.verma/viz/RetailPulseExecutiveDashboard/Dashboard1" target="_blank">Dashboard ↗</a>
+            <a href="https://github.com/emmalynnsverma-dev/RetailPulse-Executive-Dashboard" target="_blank">Code ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">PGA Tour 2025 Performance Analysis</h3>
+          <span class="project-num">03</span>
+        </div>
+        <p class="project-desc">
+          Exploratory data analysis of 20 PGA Tour players across 16 performance metrics for the 2025
+          season. Used Python to surface correlations between strokes gained, earnings efficiency, and
+          greens-in-regulation — then visualized findings in an interactive Tableau dashboard.
+        </p>
+        <div class="project-finding">
+          SG: Approach → strongest scoring correlation (r = −0.97) &nbsp;·&nbsp;
+          Fleetwood earned $18.5M per win despite only 1 victory &nbsp;·&nbsp;
+          Morikawa hits 72% GIR as one of the shortest hitters — accuracy beats distance
+        </div>
+        <div class="project-footer">
+          <div class="tool-tags">
+            <span class="tag">Python</span><span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Tableau</span>
+          </div>
+          <div class="project-links">
+            <a href="https://public.tableau.com/app/profile/emmalynnverma/viz/PGATour2025PerformanceAnalysis" target="_blank">Dashboard ↗</a>
+            <a href="https://github.com/emmalynnsverma-dev/pga-tour-2025-eda" target="_blank">Code ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">NOVA Housing &amp; Remote Work Migration Analysis</h3>
+          <span class="project-num">04</span>
+        </div>
+        <p class="project-desc">
+          Analyzed how remote work adoption during COVID-19 correlated with home value appreciation
+          across Fairfax, Loudoun, Prince William, and Arlington counties (2019–2025) using Zillow ZHVI
+          and BLS ATUS telework data. Built a Python data pipeline, 3-panel Matplotlib chart, and
+          interactive Tableau dashboard.
+        </p>
+        <div class="project-finding">
+          Loudoun surged +37.2% — highest in NOVA — as remote work peaked at 35.4% in Q2 2020 &nbsp;·&nbsp;
+          Arlington rose only +13.6% — density and DC proximity limited migration &nbsp;·&nbsp;
+          All four counties remain above 2020 baselines despite 2022 rate hike cooldown
+        </div>
+        <div class="project-footer">
+          <div class="tool-tags">
+            <span class="tag">Python</span><span class="tag">Pandas</span>
+            <span class="tag">Matplotlib</span><span class="tag">Tableau</span><span class="tag">Zillow ZHVI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://public.tableau.com/views/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1" target="_blank">Dashboard ↗</a>
+            <a href="https://github.com/emmalynnsverma-dev/nova-housing-remote-work-analysis" target="_blank">Code ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <p class="section-eyebrow">// toolkit</p>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-title">Programming & Scripting</p>
+        <ul class="skill-list">
+          <li>Python</li><li>Pandas</li><li>NumPy</li>
+          <li>SQL</li><li>HTML</li><li>PowerShell</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Data Analysis & BI</p>
+        <ul class="skill-list">
+          <li>Tableau</li><li>Power BI</li><li>Excel</li>
+          <li>Power Query</li><li>Pivot Tables</li><li>Advanced Functions</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Cloud — AWS CLF-C02 ✓</p>
+        <ul class="skill-list">
+          <li>EC2</li><li>S3</li><li>RDS</li><li>Lambda</li>
+          <li>IAM</li><li>VPC</li><li>CloudWatch</li><li>Well-Architected Framework</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">GIS & Spatial Analysis</p>
+        <ul class="skill-list">
+          <li>ArcGIS</li><li>QGIS</li><li>Global Mapper</li>
+          <li>LiDAR</li><li>KPZ/KML</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Business Systems</p>
+        <ul class="skill-list">
+          <li>UML</li><li>Activity Diagrams</li><li>Network Architecture</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Project Management</p>
+        <ul class="skill-list">
+          <li>Trello</li><li>Gantt Charts</li><li>MS Project</li>
+          <li>Git / GitHub</li><li>VS Code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <p class="section-eyebrow">// background</p>
+    <h2 class="section-title">About</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>
+          I'm a BBA in Computer Information Systems student at James Madison University (graduating May 2027)
+          with a concentration in Business Analytics. I sit at the intersection of data, systems, and
+          business strategy — comfortable writing Python pipelines, building Tableau dashboards, and
+          presenting insights to stakeholders in plain language.
+        </p>
+        <p>
+          This summer I'm interning at Teleqo Tech in McLean, VA as an Operations &amp; Data Assurance
+          Intern, overseeing geospatial data quality across 260+ project sections of LiDAR and PANO files.
+          I'm also Social Media Chair and Web Design Committee member at Madison AI Club, and a New Member
+          Educator at Alpha Kappa Psi (Nu Psi chapter).
+        </p>
+        <p>
+          I hold the AWS Certified Cloud Practitioner (CLF-C02) certification and am targeting
+          roles in data analytics, consulting, and business technology.
+        </p>
+      </div>
+      <div class="about-meta">
+        <div class="meta-item">
+          <span class="meta-label">University</span>
+          <span class="meta-value">James Madison University</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Degree</span>
+          <span class="meta-value">B.B.A. in Computer Information Systems, Business Analytics</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Expected Graduation</span>
+          <span class="meta-value">May 2027</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Current Role</span>
+          <span class="meta-value">Operations & Data Assurance Intern · Teleqo Tech</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Location</span>
+          <span class="meta-value">Northern Virginia</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Certifications</span>
+          <span class="meta-value">AWS Certified Cloud Practitioner (CLF-C02)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="contact-strip">
+      <h2 class="contact-heading">Let's connect.</h2>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/emmalynn-verma" target="_blank" class="btn btn-primary">LinkedIn ↗</a>
+        <a href="https://github.com/emmalynnsverma-dev" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+        <a href="mailto:Emmalynnsverma@gmail.com" class="btn btn-ghost">Email ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:0.5rem;">
+    <span>© 2025 Emmalynn Verma</span>
+    <span>CIS · Business Analytics · JMU '27</span>
+  </div>
+</footer>
+
+<script>
+  // scroll-reveal for cards
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.project-card, .skill-group').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
