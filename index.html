@@ -3,619 +3,464 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emmalynn Verma — Data & Business Analytics</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>Emmalynn Verma</title>
+  <meta name="description" content="Emmalynn Verma: CIS and Business Analytics student at JMU (May 2027). Data projects, class work, and experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* ── TOKENS ── */
     :root {
-      --ink:        #0f0e11;
-      --ink-muted:  #5a5566;
-      --paper:      #fafaf8;
-      --accent:     #d63384;       /* pink */
-      --accent-lt:  #fce4f0;
-      --rule:       #e2e0e8;
-      --mono:       'JetBrains Mono', monospace;
-      --serif:      'DM Serif Display', serif;
-      --sans:       'Inter', sans-serif;
-      --max:        860px;
-      --gap:        clamp(2rem, 5vw, 4rem);
+      --ink: #1f2328;
+      --muted: #5d6670;
+      --paper: #ffffff;
+      --wash: #f4f6f5;
+      --berry: #1d5c55;
+      --blush: #e4efec;
+      --line: #e1e6e4;
+      --serif: 'Young Serif', Georgia, serif;
+      --sans: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif;
+      --measure: 40rem;
+      --page: 68rem;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
     body {
+      margin: 0;
       background: var(--paper);
       color: var(--ink);
       font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.65;
+      font-size: 1.0625rem;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    img { display: block; max-width: 100%; }
+    a { color: var(--berry); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 2px solid var(--berry); outline-offset: 3px; border-radius: 2px; }
 
-    /* ── LAYOUT ── */
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+    .page { max-width: var(--page); margin: 0 auto; padding: 0 1.5rem; }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,250,248,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0.9rem 0;
+    /* ---------- top bar ---------- */
+    .top {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
     }
-    nav .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .nav-brand {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.03em;
-      text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.78rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-muted);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--accent); }
+    .top .page { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: 1rem; padding-bottom: 1rem; }
+    .top .name { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+    .top nav { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+    .top nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+    .top nav a:hover { color: var(--berry); }
+    .top nav a.pill { color: var(--berry); border: 1.5px solid var(--berry); border-radius: 999px; padding: 0.2rem 0.85rem; font-weight: 600; }
 
-    /* ── HERO ── */
-    .hero {
-      padding: calc(var(--gap) * 1.8) 0 calc(var(--gap) * 1.2);
-      border-bottom: 1px solid var(--rule);
-    }
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1.1rem;
-    }
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      max-width: 680px;
-      margin-bottom: 1.4rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--ink-muted);
-      max-width: 560px;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-    .hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.6rem 1.25rem;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: all 0.15s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: #6848b0; }
-    .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--rule); }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    /* ---------- hero ---------- */
+    .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center; padding: 4.5rem 0 4rem; }
+    .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1.08; margin: 0 0 0.35rem; }
+    .hero .role { font-size: 1.25rem; font-weight: 700; color: var(--berry); margin: 0 0 1.25rem; }
+    .hero p.lede { font-size: 1.12rem; max-width: 34rem; margin: 0 0 1.75rem; }
+    .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 0.7rem 1.3rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.98rem; }
+    .btn.solid { background: var(--berry); color: #fff; }
+    .btn.solid:hover { background: #154540; }
+    .btn.line { border: 1.5px solid var(--line); color: var(--ink); }
+    .btn.line:hover { border-color: var(--berry); color: var(--berry); }
 
-    /* signature: live stat ticker */
-    .ticker {
-      margin-top: 2.5rem;
-      display: flex; gap: 2rem; flex-wrap: wrap;
-    }
-    .ticker-item { display: flex; flex-direction: column; }
-    .ticker-num {
-      font-family: var(--mono);
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--accent);
-    }
-    .ticker-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--ink-muted);
-    }
+    /* mosaic of real dashboards */
+    .mosaic { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.6rem; aspect-ratio: 5 / 4; transform: rotate(-1.5deg); }
+    .mosaic a { position: relative; overflow: hidden; border-radius: 10px; background: var(--blush); box-shadow: 0 1px 0 var(--line), 0 10px 30px -18px rgba(31,35,40,0.45); }
+    .mosaic a:first-child { grid-row: span 2; }
+    .mosaic img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
 
-    /* ── SECTIONS ── */
-    section { padding: var(--gap) 0; border-bottom: 1px solid var(--rule); }
-    .section-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--accent);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      margin-bottom: 2rem;
-    }
+    /* ---------- what I do ---------- */
+    .do { background: var(--wash); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .do .page { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .do svg { width: 40px; height: 40px; stroke: var(--berry); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 0.75rem; }
+    .do h2 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+    .do p { margin: 0; color: var(--muted); }
 
-    /* ── PROJECTS ── */
-    .projects-grid { display: grid; gap: 1.25rem; }
+    /* ---------- sections ---------- */
+    section { padding: 4.5rem 0 0.5rem; }
+    .head { text-align: center; margin-bottom: 2.5rem; }
+    .head h2 { font-family: var(--serif); font-weight: 400; font-size: 2.1rem; margin: 0 0 0.3rem; }
+    .head p { color: var(--muted); margin: 0; }
 
-    .project-card {
-      border: 1px solid var(--rule);
-      border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 0.75rem;
-      background: #fff;
-      transition: border-color 0.15s, box-shadow 0.15s;
-    }
-    .project-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 20px rgba(124,92,191,0.1);
-    }
-    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-    .project-num {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      padding: 0.2rem 0.5rem;
-      background: var(--accent-lt);
-      border-radius: 3px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .project-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      line-height: 1.2;
-    }
-    .project-desc {
-      font-size: 0.88rem;
-      color: var(--ink-muted);
-      line-height: 1.6;
-    }
-    .project-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .tool-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      padding: 0.18rem 0.5rem;
-      background: var(--rule);
-      border-radius: 3px;
-      color: var(--ink-muted);
-    }
-    .project-links { display: flex; gap: 0.6rem; }
-    .project-links a {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .project-links a:hover { text-decoration: underline; }
+    /* ---------- cards ---------- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem 1.75rem; }
+    .card { display: flex; flex-direction: column; }
+    .thumb { aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: var(--blush); border: 1px solid var(--line); margin-bottom: 0.9rem; display: block; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform 0.3s ease; }
+    a.thumb:hover img { transform: scale(1.03); }
+    @media (prefers-reduced-motion: reduce) { a.thumb:hover img { transform: none; } }
 
-    .project-finding {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      background: var(--accent-lt);
-      padding: 0.6rem 0.85rem;
-      border-radius: 4px;
-      border-left: 2.5px solid var(--accent);
-      margin-top: 0.25rem;
-    }
+    /* class cards with no screenshot yet: course code is the art */
+    .thumb.code { display: flex; flex-direction: column; justify-content: space-between; padding: 1.1rem 1.25rem; color: var(--berry); }
+    .thumb.code .c { font-family: var(--serif); font-size: 2.6rem; line-height: 1; }
+    .thumb.code .t { font-size: 0.95rem; color: var(--ink); max-width: 18ch; }
+    .thumb.code.alt { background: #183f3b; color: #a9d3cb; border-color: #183f3b; }
+    .thumb.code.alt .t { color: #fff; }
 
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-    .skill-group {
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--rule);
-      border-radius: 8px;
-      background: #fff;
-    }
-    .skill-group-title {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
-    }
-    .skill-list {
-      list-style: none;
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-    }
-    .skill-list li {
-      font-size: 0.78rem;
-      color: var(--ink-muted);
-      padding: 0.15rem 0.5rem;
-      border: 1px solid var(--rule);
-      border-radius: 3px;
-    }
+    .card .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.2rem; }
+    .card h3 { font-size: 1.12rem; line-height: 1.3; margin: 0 0 0.5rem; }
+    .card p.desc { margin: 0 0 0.75rem; font-size: 0.98rem; }
+    .card .tools { color: var(--muted); font-size: 0.88rem; margin: 0 0 0.6rem; }
+    .card .links { display: flex; gap: 1.1rem; font-weight: 700; font-size: 0.95rem; margin: auto 0 0; }
+    .card .status { display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--berry); background: var(--blush); border-radius: 999px; padding: 0.1rem 0.6rem; margin-left: 0.35rem; vertical-align: 2px; }
 
-    /* ── ABOUT ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-    @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-body { font-size: 0.95rem; color: var(--ink-muted); line-height: 1.75; }
-    .about-body p + p { margin-top: 1rem; }
-    .about-meta { display: flex; flex-direction: column; gap: 1rem; }
-    .meta-item { display: flex; flex-direction: column; gap: 0.15rem; }
-    .meta-label { font-family: var(--mono); font-size: 0.63rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
-    .meta-value { font-size: 0.88rem; color: var(--ink); font-weight: 500; }
+    #projects .grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 2.25rem; }
+    @media (max-width: 640px) { #projects .grid { grid-template-columns: 1fr; } }
 
-    /* ── CONTACT ── */
-    .contact-strip {
-      padding: var(--gap) 0;
-      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+    .thumb.shot { padding: 0; cursor: pointer; width: 100%; font: inherit; }
+    div.thumb.shot { cursor: default; }
+    .thumb.shot img { object-fit: contain; object-position: center; background: var(--wash); }
+    .linkish { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--berry); text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; }
+
+    dialog { border: 0; border-radius: 14px; padding: 0; max-width: min(64rem, 94vw); width: 100%; max-height: 90vh; color: var(--ink); box-shadow: 0 30px 80px -30px rgba(0,0,0,0.5); }
+    dialog::backdrop { background: rgba(20,28,27,0.55); }
+    dialog .in { padding: 2rem 2.25rem 2.25rem; overflow: auto; max-height: 90vh; }
+    dialog h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin: 0 0 0.3rem; }
+    dialog h3 { font-size: 1.05rem; margin: 2rem 0 0.5rem; }
+    dialog .close { position: sticky; top: 0; float: right; background: #fff; border: 1.5px solid var(--line); border-radius: 8px; padding: 0.3rem 0.8rem; font: inherit; font-weight: 700; cursor: pointer; }
+    dialog figure { margin: 0.75rem 0 0; }
+    dialog figure img { border: 1px solid var(--line); border-radius: 8px; width: 100%; }
+    dialog figcaption { color: var(--muted); font-size: 0.92rem; margin-top: 0.5rem; }
+    dialog table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+    dialog th, dialog td { text-align: left; vertical-align: top; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--line); }
+    dialog th { background: var(--wash); }
+    dialog .note { color: var(--muted); max-width: 46rem; }
+
+    /* ---------- experience ---------- */
+    .timeline { margin: 0 auto; padding: 0; list-style: none; max-width: 48rem; border-top: 2px solid var(--ink); }
+    .timeline li { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1.1rem 0.25rem; border-bottom: 1px solid var(--line); }
+    .timeline .when { color: var(--muted); font-size: 0.92rem; }
+    .timeline h3 { margin: 0; font-size: 1.08rem; }
+    .timeline .org { color: var(--muted); }
+    .timeline p { margin: 0.35rem 0 0; }
+
+    /* ---------- skills + certs ---------- */
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 56rem; margin: 0 auto; }
+    .two h3 { font-size: 1rem; margin: 0 0 0.2rem; }
+    .two p { margin: 0 0 1.2rem; }
+    .certs { margin: 0; padding: 0; list-style: none; }
+    .certs li { padding: 0.6rem 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; }
+    .certs .s { color: var(--muted); font-size: 0.9rem; white-space: nowrap; }
+    .certs .done { color: var(--berry); font-weight: 700; }
+
+    /* ---------- footer ---------- */
+    footer { margin-top: 5rem; background: var(--wash); border-top: 1px solid var(--line); }
+    footer .page { padding-top: 3.5rem; padding-bottom: 3rem; text-align: center; }
+    footer p.big { font-family: var(--serif); font-size: 1.7rem; margin: 0 auto 1.25rem; max-width: 28ch; }
+    footer .actions { justify-content: center; }
+    footer small { display: block; color: var(--muted); margin-top: 2.5rem; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 3rem; }
+      .mosaic { transform: none; }
     }
-    .contact-heading { font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.8rem); }
-    .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 1.5rem 0;
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--ink-muted);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;
-    }
-
-    /* ── MOTION ── */
-    @media (prefers-reduced-motion: no-preference) {
-      .project-card, .skill-group {
-        opacity: 0;
-        transform: translateY(16px);
-        transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.15s, box-shadow 0.15s;
-      }
-      .project-card.visible, .skill-group.visible {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .nav-links { display: none; }
-      .ticker { gap: 1.25rem; }
+    @media (max-width: 640px) {
+      .grid, .do .page, .two { grid-template-columns: 1fr; }
+      .do .page { gap: 1.75rem; }
+      .timeline li { grid-template-columns: 1fr; gap: 0.15rem; }
+      .top nav { gap: 1rem; }
+      .top nav a:not(.pill) { font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="wrap">
-    <a class="nav-brand" href="#">Emmalynn Verma</a>
-    <ul class="nav-links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap">
-    <p class="hero-eyebrow">Computer Information Systems Major &nbsp;·&nbsp; Business Analytics Concentration &nbsp;·&nbsp; May 2027</p>
-    <h1>Turning messy data into<br><em>decisions that move.</em></h1>
-    <p class="hero-sub">
-      James Madison University · Computer Information Systems<br>
-      Operations & Data Assurance Intern @ Teleqo Tech
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="https://linkedin.com/in/emmalynn-verma" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://github.com/emmalynnsverma-dev" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-    </div>
-
-    <!-- signature ticker -->
-    <div class="ticker">
-      <div class="ticker-item">
-        <span class="ticker-num">7,000+</span>
-        <span class="ticker-label">Customer records analyzed</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-num">4</span>
-        <span class="ticker-label">End-to-end BI projects</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-num">−0.97</span>
-        <span class="ticker-label">SG: Approach correlation (PGA)</span>
-      </div>
-      <div class="ticker-item">
-        <span class="ticker-num">4+</span>
-        <span class="ticker-label">Tools: Python · Tableau · SQL · ArcGIS</span>
-      </div>
-    </div>
+<header class="top">
+  <div class="page">
+    <a class="name" href="#">Emmalynn Verma</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#classes">Class work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a class="pill" href="resume.pdf">Resume</a>
+    </nav>
   </div>
 </header>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <p class="section-eyebrow">// selected work</p>
-    <h2 class="section-title">Projects</h2>
-
-    <div class="projects-grid">
-
-      <!-- P1 -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">Telecom Customer Churn &amp; Retention Analytics</h3>
-          <span class="project-num">01</span>
-        </div>
-        <p class="project-desc">
-          Analyzed 7,043 customer records to identify key drivers of user churn. Discovered that
-          month-to-month contract holders using fiber-optic internet account for 70% of all lost revenue.
-          Built a Python ETL pipeline and interactive Tableau dashboard to help retention teams target
-          high-risk accounts before they cancel.
-        </p>
-        <div class="project-finding">
-          Month-to-month customers churn at 42.7% vs. 2% for two-year holders &nbsp;·&nbsp;
-          50% of all churn occurs within the first 12 months &nbsp;·&nbsp;
-          Electronic check + month-to-month customers churn at 2× the corporate average
-        </div>
-        <div class="project-footer">
-          <div class="tool-tags">
-            <span class="tag">Python</span><span class="tag">Pandas</span>
-            <span class="tag">Jupyter</span><span class="tag">Tableau</span>
-          </div>
-          <div class="project-links">
-            <a href="https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1" target="_blank">Dashboard ↗</a>
-            <a href="https://github.com/emmalynnsverma-dev/telecom-customer-churn-analytics" target="_blank">Code ↗</a>
-          </div>
+<main>
+  <div class="page">
+    <div class="hero">
+      <div>
+        <h1>Emmalynn Verma</h1>
+        <p class="role">Data and business analytics</p>
+        <p class="lede">I study information systems and business analytics at James Madison University (May 2027). I like taking a messy dataset and turning it into something a team can actually decide with.</p>
+        <div class="actions">
+          <a class="btn solid" href="#projects">See my projects</a>
+          <a class="btn line" href="https://linkedin.com/in/emmalynn-verma">LinkedIn</a>
+          <a class="btn line" href="https://github.com/emmalynnsverma-dev">GitHub</a>
         </div>
       </div>
-
-      <!-- P2 -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">RetailPulse Executive Performance Dashboard</h3>
-          <span class="project-num">02</span>
-        </div>
-        <p class="project-desc">
-          Designed an end-to-end BI solution for retail executive reporting using the Superstore dataset.
-          Built custom Profit Margin % calculated fields, dynamic date-range and regional filters updating
-          4 global KPIs, and dual-axis trend lines — giving executives a single-pane view of revenue,
-          margin, and segment growth.
-        </p>
-        <div class="project-finding">
-          Identified product sub-categories dragging down margins &nbsp;·&nbsp;
-          Pinpointed the fastest-scaling customer segment &nbsp;·&nbsp;
-          Dynamic filters update all 4 KPIs in real time
-        </div>
-        <div class="project-footer">
-          <div class="tool-tags">
-            <span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">Calculated Fields</span>
-          </div>
-          <div class="project-links">
-            <a href="https://public.tableau.com/app/profile/emmalynn.verma/viz/RetailPulseExecutiveDashboard/Dashboard1" target="_blank">Dashboard ↗</a>
-            <a href="https://github.com/emmalynnsverma-dev/RetailPulse-Executive-Dashboard" target="_blank">Code ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- P3 -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">PGA Tour 2025 Performance Analysis</h3>
-          <span class="project-num">03</span>
-        </div>
-        <p class="project-desc">
-          Exploratory data analysis of 20 PGA Tour players across 16 performance metrics for the 2025
-          season. Used Python to surface correlations between strokes gained, earnings efficiency, and
-          greens-in-regulation — then visualized findings in an interactive Tableau dashboard.
-        </p>
-        <div class="project-finding">
-          SG: Approach → strongest scoring correlation (r = −0.97) &nbsp;·&nbsp;
-          Fleetwood earned $18.5M per win despite only 1 victory &nbsp;·&nbsp;
-          Morikawa hits 72% GIR as one of the shortest hitters — accuracy beats distance
-        </div>
-        <div class="project-footer">
-          <div class="tool-tags">
-            <span class="tag">Python</span><span class="tag">Pandas</span>
-            <span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Tableau</span>
-          </div>
-          <div class="project-links">
-            <a href="https://public.tableau.com/app/profile/emmalynnverma/viz/PGATour2025PerformanceAnalysis" target="_blank">Dashboard ↗</a>
-            <a href="https://github.com/emmalynnsverma-dev/pga-tour-2025-eda" target="_blank">Code ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- P4 -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3 class="project-title">NOVA Housing &amp; Remote Work Migration Analysis</h3>
-          <span class="project-num">04</span>
-        </div>
-        <p class="project-desc">
-          Analyzed how remote work adoption during COVID-19 correlated with home value appreciation
-          across Fairfax, Loudoun, Prince William, and Arlington counties (2019–2025) using Zillow ZHVI
-          and BLS ATUS telework data. Built a Python data pipeline, 3-panel Matplotlib chart, and
-          interactive Tableau dashboard.
-        </p>
-        <div class="project-finding">
-          Loudoun surged +37.2% — highest in NOVA — as remote work peaked at 35.4% in Q2 2020 &nbsp;·&nbsp;
-          Arlington rose only +13.6% — density and DC proximity limited migration &nbsp;·&nbsp;
-          All four counties remain above 2020 baselines despite 2022 rate hike cooldown
-        </div>
-        <div class="project-footer">
-          <div class="tool-tags">
-            <span class="tag">Python</span><span class="tag">Pandas</span>
-            <span class="tag">Matplotlib</span><span class="tag">Tableau</span><span class="tag">Zillow ZHVI</span>
-          </div>
-          <div class="project-links">
-            <a href="https://public.tableau.com/views/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1" target="_blank">Dashboard ↗</a>
-            <a href="https://github.com/emmalynnsverma-dev/nova-housing-remote-work-analysis" target="_blank">Code ↗</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="wrap">
-    <p class="section-eyebrow">// toolkit</p>
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <p class="skill-group-title">Programming & Scripting</p>
-        <ul class="skill-list">
-          <li>Python</li><li>Pandas</li><li>NumPy</li>
-          <li>SQL</li><li>HTML</li><li>PowerShell</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Data Analysis & BI</p>
-        <ul class="skill-list">
-          <li>Tableau</li><li>Power BI</li><li>Excel</li>
-          <li>Power Query</li><li>Pivot Tables</li><li>Advanced Functions</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Cloud — AWS CLF-C02 ✓</p>
-        <ul class="skill-list">
-          <li>EC2</li><li>S3</li><li>RDS</li><li>Lambda</li>
-          <li>IAM</li><li>VPC</li><li>CloudWatch</li><li>Well-Architected Framework</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">GIS & Spatial Analysis</p>
-        <ul class="skill-list">
-          <li>ArcGIS</li><li>QGIS</li><li>Global Mapper</li>
-          <li>LiDAR</li><li>KPZ/KML</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Business Systems</p>
-        <ul class="skill-list">
-          <li>UML</li><li>Activity Diagrams</li><li>Network Architecture</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <p class="skill-group-title">Project Management</p>
-        <ul class="skill-list">
-          <li>Trello</li><li>Gantt Charts</li><li>MS Project</li>
-          <li>Git / GitHub</li><li>VS Code</li>
-        </ul>
+      <div class="mosaic" aria-label="Some of my Tableau dashboards">
+        <a href="https://public.tableau.com/views/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1"><img src="https://public.tableau.com/static/images/NO/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1/1.png" alt="NOVA housing dashboard" loading="lazy" onerror="this.remove()" /></a>
+        <a href="https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1"><img src="https://public.tableau.com/static/images/Te/TelecomCustomerChurnAnalytics/Dashboard1/1.png" alt="Telecom churn dashboard" loading="lazy" onerror="this.remove()" /></a>
+        <a href="https://public.tableau.com/app/profile/emmalynnverma/viz/RetailPulseExecutiveDashboard/Dashboard1"><img src="https://public.tableau.com/static/images/Re/RetailPulseExecutiveDashboard/Dashboard1/1.png" alt="RetailPulse dashboard" loading="lazy" onerror="this.remove()" /></a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <p class="section-eyebrow">// background</p>
-    <h2 class="section-title">About</h2>
-    <div class="about-grid">
-      <div class="about-body">
-        <p>
-          I'm a BBA in Computer Information Systems student at James Madison University (graduating May 2027)
-          with a concentration in Business Analytics. I sit at the intersection of data, systems, and
-          business strategy — comfortable writing Python pipelines, building Tableau dashboards, and
-          presenting insights to stakeholders in plain language.
-        </p>
-        <p>
-          This summer I'm interning at Teleqo Tech in McLean, VA as an Operations &amp; Data Assurance
-          Intern, overseeing geospatial data quality across 260+ project sections of LiDAR and PANO files.
-          I'm also Social Media Chair and Web Design Committee member at Madison AI Club, and a New Member
-          Educator at Alpha Kappa Psi (Nu Psi chapter).
-        </p>
-        <p>
-          I hold the AWS Certified Cloud Practitioner (CLF-C02) certification and am targeting
-          roles in data analytics, consulting, and business technology.
-        </p>
+  <!-- ============ WHAT I DO ============ -->
+  <div class="do">
+    <div class="page">
+      <div>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 30V18M16 30V10M24 30v-8M32 30V14"/><path d="M5 33h30"/></svg>
+        <h2>Analyze</h2>
+        <p>I clean and explore data in Python (pandas) and SQL, and run stats like ANOVA and chi-square in Excel.</p>
       </div>
-      <div class="about-meta">
-        <div class="meta-item">
-          <span class="meta-label">University</span>
-          <span class="meta-value">James Madison University</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Degree</span>
-          <span class="meta-value">B.B.A. in Computer Information Systems, Business Analytics</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Expected Graduation</span>
-          <span class="meta-value">May 2027</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Current Role</span>
-          <span class="meta-value">Operations & Data Assurance Intern · Teleqo Tech</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Location</span>
-          <span class="meta-value">Northern Virginia</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Certifications</span>
-          <span class="meta-value">AWS Certified Cloud Practitioner (CLF-C02)</span>
-        </div>
+      <div>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="20" rx="2"/><path d="M15 33h10M20 27v6"/><path d="M10 22l6-6 4 4 8-8"/></svg>
+        <h2>Visualize</h2>
+        <p>I build Tableau dashboards that answer one clear question, and I'm learning Power BI.</p>
+      </div>
+      <div>
+        <svg viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="10" rx="11" ry="4"/><path d="M9 10v10c0 2.2 4.9 4 11 4s11-1.8 11-4V10"/><path d="M9 20v10c0 2.2 4.9 4 11 4s11-1.8 11-4V20"/></svg>
+        <h2>Design systems</h2>
+        <p>I gather requirements, model them in UML, design databases, and write technical proposals that map a solution to what the client asked for.</p>
       </div>
     </div>
   </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact" style="border-bottom:none;">
-  <div class="wrap">
-    <div class="contact-strip">
-      <h2 class="contact-heading">Let's connect.</h2>
-      <div class="contact-links">
-        <a href="https://linkedin.com/in/emmalynn-verma" target="_blank" class="btn btn-primary">LinkedIn ↗</a>
-        <a href="https://github.com/emmalynnsverma-dev" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-        <a href="mailto:Emmalynnsverma@gmail.com" class="btn btn-ghost">Email ↗</a>
+  <div class="page">
+    <!-- ============ PERSONAL PROJECTS ============ -->
+    <section id="projects">
+      <div class="head">
+        <h2>Projects</h2>
+        <p>Things I built on my own time, start to finish.</p>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:0.5rem;">
-    <span>© 2025 Emmalynn Verma</span>
-    <span>CIS · Business Analytics · JMU '27</span>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb" href="https://public.tableau.com/views/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1"><img src="https://public.tableau.com/static/images/NO/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1/1.png" alt="" loading="lazy" onerror="this.remove()" /></a>
+          <p class="meta">2025</p>
+          <h3>NOVA housing and remote work</h3>
+          <p class="desc">Did remote work push people to the outer suburbs? Loudoun home values rose 37.2% from 2019 to 2025, while Arlington's rose only 13.6%.</p>
+          <p class="tools">Python, pandas, Matplotlib, Tableau, Zillow ZHVI</p>
+          <p class="links"><a href="https://public.tableau.com/views/NOVAHousingRemoteWorkMigrationAnalysis20192025/Dashboard1">Dashboard</a><a href="https://github.com/emmalynnsverma-dev/nova-housing-remote-work-analysis">Code</a></p>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1"><img src="https://public.tableau.com/static/images/Te/TelecomCustomerChurnAnalytics/Dashboard1/1.png" alt="" loading="lazy" onerror="this.remove()" /></a>
+          <p class="meta">2025</p>
+          <h3>Telecom customer churn</h3>
+          <p class="desc">Across 7,043 customers, month-to-month contracts churn at 42.7% versus 2% for two-year contracts. Half of all churn happens in the first year.</p>
+          <p class="tools">Python, pandas, Jupyter, Tableau</p>
+          <p class="links"><a href="https://public.tableau.com/views/TelecomCustomerChurnAnalytics/Dashboard1">Dashboard</a><a href="https://github.com/emmalynnsverma-dev/telecom-customer-churn-analytics">Code</a></p>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="https://public.tableau.com/app/profile/emmalynnverma/viz/PGATour2025PerformanceAnalysis"><img src="https://public.tableau.com/static/images/PG/PGATour2025PerformanceAnalysis/Dashboard1/1.png" alt="" loading="lazy" onerror="this.remove()" /></a>
+          <p class="meta">2025</p>
+          <h3>PGA Tour 2025 season</h3>
+          <p class="desc">Does distance matter as much as people think? Strokes gained on approach tracked scoring most closely (r = −0.97). Accuracy beat distance.</p>
+          <p class="tools">Python, pandas, Seaborn, Tableau</p>
+          <p class="links"><a href="https://public.tableau.com/app/profile/emmalynnverma/viz/PGATour2025PerformanceAnalysis">Dashboard</a><a href="https://github.com/emmalynnsverma-dev/pga-tour-2025-eda">Code</a></p>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="https://public.tableau.com/app/profile/emmalynnverma/viz/RetailPulseExecutiveDashboard/Dashboard1"><img src="https://public.tableau.com/static/images/Re/RetailPulseExecutiveDashboard/Dashboard1/1.png" alt="" loading="lazy" onerror="this.remove()" /></a>
+          <p class="meta">2025</p>
+          <h3>RetailPulse executive dashboard</h3>
+          <p class="desc">A one-page view of revenue, margin, and segment growth with filters that update all four KPIs at once. It shows which sub-categories drag margin down.</p>
+          <p class="tools">Tableau, Excel</p>
+          <p class="links"><a href="https://public.tableau.com/app/profile/emmalynnverma/viz/RetailPulseExecutiveDashboard/Dashboard1">Dashboard</a><a href="https://github.com/emmalynnsverma-dev/RetailPulse-Executive-Dashboard">Code</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CLASS WORK ============ -->
+    <section id="classes">
+      <div class="head">
+        <h2>Class work</h2>
+        <p>Team projects from my CIS and analytics courses at JMU.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <!-- SWAP IN: a screenshot of one of your use case or activity diagrams -->
+          <div class="thumb code alt"><span class="c">CIS 454</span><span class="t">Systems Analysis and Design</span></div>
+          <p class="meta">Fall 2026 <span class="status">In progress</span></p>
+          <h3>AI oral examiner</h3>
+          <p class="desc">An AI system that gives oral exams and simulates client interviews. I ran requirements interviews with the client, turned their needs into use cases and UML activity diagrams, and handed the documentation to the capstone teams who build from it. Then I revised it based on their buildability reviews.</p>
+          <p class="tools">Requirements elicitation, use cases, UML activity diagrams</p>
+        </article>
+
+        <article class="card">
+          <button class="thumb shot" type="button" data-open="rfp" aria-label="Open proposal excerpts"><img src="images/a1fed-pipeline.svg" alt="Seven-step integration pipeline: connect, ingest, validate, normalize, correlate, monitor, reconcile" /></button>
+          <p class="meta">Fall 2026</p>
+          <h3>Federal RFP response: data analytics platform</h3>
+          <p class="desc">My team wrote a three-volume proposal as "A1Fed," answering a class version of a federal RFP for a public safety data analytics platform. I wrote the capability narrative and the integration approach, mapped to the statement of work.</p>
+          <p class="tools">Proposal writing, solution design, Azure Government</p>
+          <p class="links"><button class="linkish" type="button" data-open="rfp">See proposal excerpts</button></p>
+        </article>
+
+        <article class="card">
+          <!-- SWAP IN: the Tableau dashboard once it's published (and add a Dashboard link) -->
+          <div class="thumb shot"><img src="images/bsan390-contract-size.svg" alt="Bar chart: typical contract size is $18K at DoD versus $157K to $1.00M at civilian agencies" /></div>
+          <p class="meta">Fall 2026</p>
+          <h3>Which agencies should an IT firm pursue?</h3>
+          <p class="desc">We cleaned 25,523 FY2025 federal IT contracts in Virginia ($135B) out of a 286-column USAspending.gov extract. ANOVA showed civilian agencies' typical contracts are 9 to 55 times larger than DoD's. Chi-square showed small-business win rates vary sharply, from 89% at VA to 23% at DoD.</p>
+          <p class="tools">Excel, one-way ANOVA, chi-square</p>
+        </article>
+
+        <article class="card">
+          <div class="thumb code"><span class="c">CIS 330</span><span class="t">Database Design</span></div>
+          <p class="meta">Fall 2026 <span class="status">In progress</span></p>
+          <h3>Database for a dive shop</h3>
+          <p class="desc">Designing a relational database for a dive shop client case (Morgan Dive 'n' Thrive), from requirements through the data model.</p>
+          <!-- ADD: entities, normalization, queries, and your part -->
+          <p class="tools">SQL, ERD</p>
+        </article>
+
+        <article class="card">
+          <div class="thumb code alt"><span class="c">CIS 304</span><span class="t">Information Security</span></div>
+          <p class="meta">2025</p>
+          <h3>Security risk assessment</h3>
+          <p class="desc">A multi-table workbook for a fictional company that lists assets, threats, and vulnerabilities, then uses lookups to score and rank the risks.</p>
+          <p class="tools">Excel</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience">
+      <div class="head"><h2>Experience</h2></div>
+      <ol class="timeline" reversed>
+        <li>
+          <span class="when">Summer 2026 to now</span>
+          <div>
+            <h3>Operations and Data Assurance Intern</h3>
+            <span class="org">Teleqo Tech, McLean, VA</span>
+            <p>I track milestones and deliverables across 3 to 5 projects at once, prepare invoices and reports, and flag risks early. I also clean and validate 260+ project sections of panoramic, LAZ, and geospatial files before they go to the client.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Summer 2025 to May 2026</span>
+          <div>
+            <h3>Data Processing Intern</h3>
+            <span class="org">Teleqo Tech, McLean, VA</span>
+            <p>Automated data processing and quality checks with Python and PowerShell. I processed 1,000+ LiDAR and panoramic files into 3D mobile mapping datasets and tracked down corrupt and missing files across data hubs.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">2025 to 2026</span>
+          <div>
+            <h3>Tutor, Business Analytics I and II</h3>
+            <span class="org">James Madison University</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">Feb 2026 to now</span>
+          <div>
+            <h3>Social Media Chair</h3>
+            <span class="org">Madison AI Club</span>
+          </div>
+        </li>
+        <li>
+          <span class="when">Feb 2025 to now</span>
+          <div>
+            <h3>Member, former New Member Educator</h3>
+            <span class="org">Alpha Kappa Psi, Nu Psi chapter</span>
+            <p>Ran the new member program in fall 2025.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Seasonal, 2024 to now</span>
+          <div>
+            <h3>Event Coordinator</h3>
+            <span class="org">White's Ferry Manor, Brewery &amp; Silk, Leesburg, VA</span>
+            <p>Coordinate logistics for weddings and private events across three family-owned venues.</p>
+          </div>
+        </li>
+        <li>
+          <span class="when">Aug 2024 to now</span>
+          <div>
+            <h3>Member</h3>
+            <span class="org">Association for Information Systems</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ SKILLS + CERTS ============ -->
+    <section id="skills">
+      <div class="head"><h2>Skills and certifications</h2></div>
+      <div class="two">
+        <div>
+          <h3>Analysis</h3>
+          <p>Python (pandas, NumPy, Matplotlib, Seaborn), SQL, PowerShell, Excel (Power Query, pivot tables, advanced functions), Tableau, Power BI. Optimization, simulation, forecasting, and regression.</p>
+          <h3>Systems</h3>
+          <p>Requirements analysis, use cases, UML and activity diagrams, database design, network architecture, AWS fundamentals, Git and GitHub</p>
+          <h3>AI tools</h3>
+          <p>Claude Code, ChatGPT, Microsoft Copilot</p>
+          <h3>Geospatial</h3>
+          <p>ArcGIS, QGIS, Global Mapper, LiDAR, KML</p>
+          <h3>Projects and consulting</h3>
+          <p>Scrum, proposal writing, MS Project, Gantt charts, Trello</p>
+        </div>
+        <div>
+          <ul class="certs">
+            <li>AWS Certified Cloud Practitioner <span class="s done">Earned</span></li>
+            <li>Databricks Fundamentals <span class="s done">Earned</span></li>
+            <li>Scrum Alliance: Agile Essentials <span class="s done">Earned</span></li>
+            <li>Scrum Alliance: AI for Scrum Masters <span class="s done">Earned</span></li>
+            <li>CompTIA Network+ <span class="s">In progress</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<dialog id="rfp" aria-labelledby="rfp-title">
+  <div class="in">
+    <button class="close" type="button" data-close>Close</button>
+    <h2 id="rfp-title">A1Fed proposal excerpts</h2>
+    <p class="note">From our CIS 343 team's response to a class version of a federal RFP. A1Fed is the fictional firm we wrote as.</p>
+
+    <h3>Data validation checkpoints (Section 2.3, which I wrote)</h3>
+    <table>
+      <thead><tr><th>Checkpoint</th><th>Checks applied</th><th>On failure</th></tr></thead>
+      <tbody>
+        <tr><td>On arrival</td><td>Record counts against the source, file checksums, expected columns and data types</td><td>Batch held, data integration engineer notified</td></tr>
+        <tr><td>During standardization</td><td>Required fields present, valid dates and codes, duplicate keys, values within expected ranges</td><td>Record quarantined and listed on the data quality dashboard</td></tr>
+        <tr><td>After loading</td><td>Source-to-platform counts and key totals for each source and load</td><td>Discrepancy logged, reload from the last checkpoint</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Authorization boundary diagram (which I made)</h3>
+    <figure>
+      <img src="images/a1fed-boundary-diagram.png" alt="Diagram of the A1Fed platform inside its Azure Government authorization boundary, with source systems on the left and users and services on the right" loading="lazy" />
+      <figcaption>I designed this diagram for the System Architecture section (2.2). It shows every Azure Government service inside the authorization boundary and how each outside source and user connects to it.</figcaption>
+    </figure>
+  </div>
+</dialog>
+
+<footer id="contact">
+  <div class="page">
+    <p class="big">If you're hiring for data or consulting roles in the DC area, I'd love to talk.</p>
+    <div class="actions">
+      <a class="btn solid" href="mailto:Emmalynnsverma@gmail.com">Email me</a>
+      <a class="btn line" href="https://linkedin.com/in/emmalynn-verma">LinkedIn</a>
+      <a class="btn line" href="https://github.com/emmalynnsverma-dev">GitHub</a>
+    </div>
+    <small>© 2026 Emmalynn Verma</small>
   </div>
 </footer>
 
 <script>
-  // scroll-reveal for cards
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.project-card, .skill-group').forEach(el => observer.observe(el));
+  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => document.getElementById(b.dataset.open).showModal()));
+  document.querySelectorAll('dialog').forEach(d => {
+    d.querySelector('[data-close]').addEventListener('click', () => d.close());
+    d.addEventListener('click', e => { if (e.target === d) d.close(); });
+  });
 </script>
 </body>
 </html>
